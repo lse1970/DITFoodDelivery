@@ -12,7 +12,8 @@ class FoodDeliveryTableViewController: UITableViewController {
     
     var foodstoreName = ["늘해랑", "번개반점", "아딸", "왕짜장", "토마토도시락", "홍콩반점"]
     var foodstoreImages = ["01", "02", "03", "04", "05", "06"]
-
+    var foodstoreAddress = ["부산광역시 부산진구 중앙대로928번길", "부산광역시 부산진구 양지로34", "부산광역시 부산진구 중앙대로909번길 4", "부산광역시 부산진구 진남로 505", "부산광역시 부산진구 양지로 28", "부산광역시 부산진구 중앙대로 902"]
+    var foodstoreType = ["돼지국밥", "중화요리", "분식", "중화요리", "도시락", "중화요리"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +22,8 @@ class FoodDeliveryTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.title = "DIT 배달통"
     }
 
     
@@ -40,6 +43,7 @@ class FoodDeliveryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RE", for: indexPath)
         cell.textLabel?.text=foodstoreName[indexPath.row]
+        cell.detailTextLabel?.text=foodstoreType[indexPath.row]
         cell.imageView?.image=UIImage(named: foodstoreImages[indexPath.row])
         return cell
     }
